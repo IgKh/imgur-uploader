@@ -1,0 +1,7 @@
+build/
+Makefile
+imgur-uploader
+
+# Misc stuff
+*.swp
+*~

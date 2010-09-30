@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/png;image/jpeg;image/tiff;image/gif;image/bmp
+Actions=uploadToImgur
+
+[Desktop Action uploadToImgur]
+Name=Upload to imgur
+Exec=imgur-uploader %f
+Icon=imgur

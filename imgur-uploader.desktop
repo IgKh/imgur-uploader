@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=imgur Uploader
+GenericName=Uploads images to imgur.com
+
+Exec=imgur-uploader %f
+Icon=imgur
+Type=Application
+Terminal=false
+Categories=Qt;Graphics
+MimeType=image/png;image/jpeg;image/tiff;image/gif;image/bmp;
