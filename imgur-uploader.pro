@@ -57,21 +57,28 @@ unix : !macx {
     INSTALLS += target icon desktop
 
     # If KDE is installed, install service menu
-    KDE_SERVICE_PATHS = $$system(kde4-config --path services | tr : \" \")
+    system(which kde4-config > /dev/null 2>&1) {
+        message("KDE SC 4 found: service menu will be installed")
 
-    !isEmpty(KDE_SERVICE_PATHS) {
-        # Find the system-level service directory
-        for(path, KDE_SERVICE_PATHS) {
-            !contains(path, $$(HOME)) {
-                FINAL_PATH = $${path}
+        KDE_SERVICE_PATHS = $$system(kde4-config --path services | tr : \" \")
+
+        !isEmpty(KDE_SERVICE_PATHS) {
+            # Find the system-level service directory
+            for(path, KDE_SERVICE_PATHS) {
+                !contains(path, $$(HOME)) {
+                    FINAL_PATH = $${path}
+                }
+            }
+
+            !isEmpty(FINAL_PATH) {
+                serviceMenu.files = uploadToImgur.desktop
+                serviceMenu.path = $${FINAL_PATH}/ServiceMenus
+
+                INSTALLS += serviceMenu
             }
         }
-
-        !isEmpty(FINAL_PATH) {
-            serviceMenu.files = uploadToImgur.desktop
-            serviceMenu.path = $${FINAL_PATH}/ServiceMenus
-
-            INSTALLS += serviceMenu
-        }
+    }
+    else {
+        message("Couldn't find KDE SC 4 on your system: service menu will not be installed")
     }
 }
