@@ -1,0 +1,35 @@
+Overview
+========
+imgur-Uploader is a Qt based graphical image uploader for imgur, the simple
+image sharer (http://imgur.com). It offers preview of the uploaded image,
+and links to the various sizes after the upload.
+
+imgur-Uploader does not depend on KDE, but if KDE SC 4 is detected a Konquror/
+Dolphin service menu will be installed.
+
+Note: while imgur supports uploads of files in the PDF and XCF formats, it
+is currently not possible to upload such files through imgur-Uploader.
+
+Installation
+============
+imgur-Uploader depends only on the Qt framework, version 4.4 and above,
+modules core, gui, xml and network.
+
+To compile and install imgur-Uploader use the following command sequence:
+
+    qmake PREFIX=/usr       # Or another prefix, if suitable
+    make
+    make install            # As root
+
+Copyright and License
+=====================
+imgur-Uploader is licensed under the Apache 2.0 License. See the file COPYING
+for details.
+
+imgur-Uploader is copyrighted (c) 2010, Igor Khanin.
+The imgur logo is copyrighted (c) 2010, Imgur LLC.
+
+Contact
+=======
+Email me: <igorkh [AT] freeshell [DOT] org>
+
