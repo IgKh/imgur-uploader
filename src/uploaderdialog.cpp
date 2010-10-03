@@ -25,6 +25,7 @@
 #include <QGroupBox>
 #include <QFileInfo>
 #include <QLineEdit>
+#include <QLocale>
 #include <QLabel>
 
 #include "uploaderdialog.h"
@@ -95,15 +96,16 @@ bool UploaderDialog::setImageFile(const QString & file)
 
     qint64 size = fileInfo.size();
     QString fileSize;
+    QLocale locale;
 
     if (size >= 1000000) {
-        fileSize = tr("%1 MB").arg(size / 1000000.0);
+        fileSize = tr("%1 MB").arg(locale.toString(size / 1000000.0, 'f', 2));
     }
     else if (size >= 1000) {
-        fileSize = tr("%1 KB").arg(size / 1000.0);
+        fileSize = tr("%1 KB").arg(locale.toString(size / 1000.0, 'f', 2));
     }
     else {
-        fileSize = tr("%1 B").arg(size);
+        fileSize = tr("%1 B").arg(locale.toString(size));
     }
 
     // Fill the UI
